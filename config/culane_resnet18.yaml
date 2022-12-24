@@ -1,0 +1,38 @@
+# DATA
+dataset : 'CULane'
+row_anchor : [121, 131, 141, 150, 160, 170, 180, 189, 199, 209, 219, 228, 238, 248, 258, 267, 277, 287]
+num_lanes : 4
+
+local_data_root : '/cache/'
+data_url : '../../dataset/CULane/'
+train_url : '../output'
+
+# TRAIN
+device_target : 'Ascend'
+amp_level : 'O0'
+epochs : 50
+batch_size : 8
+optimizer : 'SGD'  #['SGD','Adam']
+lr : 0.1
+weight_decay : 0.0001
+momentum : 0.9
+resume: ''
+start_epochs : 1
+
+use_cosine_decay_lr : 'True'
+warmup_init_lr : 0.000001
+warmup : 5
+cooldown : 0
+lr_min : 0
+
+dataset_sink_mode : 'False'
+
+# NETWORK
+backbone : '18'
+griding_num : 200
+backbone_pretrain : '../resnet18_ascend_v150_imagenet2012_official_cv_top1acc70.47_top5acc89.61.ckpt'
+
+# LOSS
+sim_loss_w : 0.0
+shp_loss_w : 0.0
+
